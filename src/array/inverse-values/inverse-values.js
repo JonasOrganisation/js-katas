@@ -15,6 +15,19 @@ Don't mutate the parameter.
 */
 
 // TODO add your code here
+const arg = [1];
+function inverse(arg) {
+  let result = [];
+  if (arg === null || arg === undefined) {
+    return [];
+  } else {
+    for (let item of arg) {
+      item = item * -1;
+      result.push(item);
+    }
+    return result;
+  }
+}
 
 // Begin of tests
 const assert = require("assert");
