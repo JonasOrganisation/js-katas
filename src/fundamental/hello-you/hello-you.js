@@ -9,6 +9,16 @@ If the argument is empty, null or undefined, return "Hello World":
 
 // TODO add your code here
 
+let name = "Barbara";
+function sayHello(name) {
+  //   if ((name === null) | (name === undefined) | (name === ""))
+  if (!name) {
+    return "Hello World";
+  }
+  return "Hello " + name;
+}
+//(!name) renvoi false comme (name === null) | (name === undefined) | (name === "")
+
 // Begin of tests
 const assert = require("assert");
 
