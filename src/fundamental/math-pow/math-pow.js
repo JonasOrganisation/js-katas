@@ -17,7 +17,12 @@ You can't use Math.pow(), the goal is to recreate this function!
 */
 
 // TODO add your code here
-
+function pow(base, exponent) {
+  if (typeof base !== "number" || typeof exponent !== "number") {
+    return NaN;
+  }
+  return base ** exponent;
+}
 // Begin of tests
 const assert = require("assert");
 

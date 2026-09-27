@@ -8,6 +8,17 @@ Note: If the number is a multiple of both 3 and 5, only count it once.
 */
 
 // TODO add your code here
+function sum(number) {
+  let total = 0;
+
+  for (let multiple = 0; multiple < number; multiple++) {
+    if (multiple % 3 === 0 || multiple % 5 === 0) {
+      total = total + multiple; //total += multiple
+    }
+  }
+
+  return total;
+}
 
 // Begin of tests
 const assert = require("assert");
