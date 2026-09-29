@@ -24,6 +24,28 @@ TODO :
 */
 
 // Votre code ici !
+// const Person = {
+//   name: "Jonas",
+//   age: 18,
+//   weeaboo: true,
+//   introduce: function () {
+//     console.log(`My name is ${this.name} and I am ${this.age}`);
+//   },
+//   greets: function (name, string) {
+//     if (!this.weeaboo) {
+//       console.log(`Hello ${name}`);
+//     } else {
+//       console.log(`Ohayou ${name}-chan`);
+//     }
+//   },
+// };
+// console.log("Person name:", Person.name);
+// Person.introduce();
+// Person.greets("barbara", "test");
+// const hero = Person;
+// hero.power = "teleport";
+// console.log("hero power:", hero.power);
+// hero.introduce();
 
 // Begin of tests
 const assert = require("assert");
@@ -35,48 +57,48 @@ if (typeof Person === "function") {
   assert.strictEqual(
     typeof new Person().introduce,
     "function",
-    "introduce method is undefined"
+    "introduce method is undefined",
   );
   if (typeof new Person().introduce === "function") {
     assert.strictEqual(
       new Person("John Doe", 30, false).introduce(),
-      "My name is John Doe and I am 30"
+      "My name is John Doe and I am 30",
     );
   }
   assert.strictEqual(
     typeof new Person().greets,
     "function",
-    "greets method is undefined"
+    "greets method is undefined",
   );
   if (typeof new Person().greets === "function") {
     assert.strictEqual(
       new Person("John Doe", 30, false).greets("Barbara"),
-      "Hello Barbara"
+      "Hello Barbara",
     );
     assert.strictEqual(
       new Person("John Doe", 30, true).greets("Uzaki"),
-      "Ohayou Uzaki-chan"
+      "Ohayou Uzaki-chan",
     );
   }
   assert.strictEqual(
     typeof new Person().match,
     "function",
-    "match method is undefined"
+    "match method is undefined",
   );
   if (typeof new Person().match === "function") {
     assert.strictEqual(
       new Person("John Doe", 30, false).match(
-        new Person("Jane Doe", 30, false)
+        new Person("Jane Doe", 30, false),
       ),
-      true
+      true,
     );
     assert.strictEqual(
       new Person("John Doe", 30, true).match(new Person("Jane Doe", 30, false)),
-      false
+      false,
     );
     assert.strictEqual(
       new Person("John Doe", 30, true).match(new Person("Jane Doe", 30, true)),
-      true
+      true,
     );
   }
 }

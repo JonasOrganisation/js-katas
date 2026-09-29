@@ -10,7 +10,20 @@ Example:
 */
 
 // TODO add your code here
+function sum(array) {
+  if (array === null || array.length === 0) {
+    return 0;
+  }
 
+  console.log(array);
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 !== 0) {
+      count += array[i];
+    }
+  }
+  return count;
+}
 // Begin of tests
 const assert = require("assert");
 

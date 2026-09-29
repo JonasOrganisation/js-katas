@@ -8,7 +8,21 @@ Create a function `getLikes` which receives an array of names, and returns:
 */
 
 // TODO add your code here
-
+const getLikes = (names) => {
+  if (names.length === 0) {
+    return "Be the first to like this";
+  }
+  if (names.length === 1) {
+    return `${names[0]} likes this`;
+  }
+  if (names.length === 2) {
+    return `${names[0]} and ${names[1]} like this`;
+  }
+  if (names.length > 3) {
+    return `${names[0]} and ${names.length - 1} other people like this`;
+  }
+  console.log(names);
+};
 // Begin of tests
 const assert = require("assert");
 
@@ -17,10 +31,19 @@ assert.strictEqual(getLikes.length, 1);
 assert.strictEqual(getLikes([]), "Be the first to like this");
 assert.strictEqual(getLikes(["Cartman"]), "Cartman likes this");
 assert.strictEqual(getLikes(["Bart"]), "Bart likes this");
-assert.strictEqual(getLikes(["Kenny", "Cartman"]), "Kenny and Cartman like this");
+assert.strictEqual(
+  getLikes(["Kenny", "Cartman"]),
+  "Kenny and Cartman like this",
+);
 assert.strictEqual(getLikes(["Bart", "Lisa"]), "Bart and Lisa like this");
-assert.strictEqual(getLikes(["Stan", "Kyle", "Kenny", "Cartman"]), "Stan and 3 other people like this");
-assert.strictEqual(getLikes(["Homer", "Marge", "Bart", "Lisa", "Maggie"]), "Homer and 4 other people like this");
+assert.strictEqual(
+  getLikes(["Stan", "Kyle", "Kenny", "Cartman"]),
+  "Stan and 3 other people like this",
+);
+assert.strictEqual(
+  getLikes(["Homer", "Marge", "Bart", "Lisa", "Maggie"]),
+  "Homer and 4 other people like this",
+);
 // End of tests
 
 console.log("🎉");
