@@ -18,14 +18,56 @@ Add you own tests.
 */
 
 // TODO add your code here
+let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
+function cipher(word, number) {
+  if (typeof word === "string" && typeof number === "number") {
+    let result = [];
+    let tab = word.split("");
+
+    for (let i = 0; i < tab.length; i++) {
+      let index = alphabet.indexOf(tab[i]);
+
+      let newIndex = (index + number) % alphabet.length;
+
+      // Gestion des nombres négatifs
+      if (newIndex < 0) {
+        newIndex += alphabet.length;
+      }
+
+      result.push(alphabet[newIndex]);
+    }
+
+    return result.join("");
+  }
+  throw new TypeError();
+}
 // Begin of tests
 const assert = require("assert");
 
 assert.strictEqual(typeof cipher, "function");
 assert.strictEqual(cipher.length, 2);
-// TODO add your tests:
 
+assert.strictEqual(cipher("abcd", 1), "bcde");
+console.log('✅ cipher("abcd", 1) -> "bcde"');
+
+assert.strictEqual(cipher("abcd", -1), "zabc");
+console.log('✅ cipher("abcd", -1) -> "zabc"');
+
+assert.strictEqual(cipher("tacos", 3), "wdfrv");
+console.log('✅ cipher("tacos", 3) -> "wdfrv"');
+
+assert.strictEqual(cipher("zebra", 2), "bgdtc");
+console.log('✅ cipher("zebra", 2) -> "bgdtc"');
+
+assert.throws(() => cipher(null, 1), TypeError);
+console.log("✅ cipher(null, 1) -> TypeError");
+
+assert.throws(() => cipher("abcd", null), TypeError);
+console.log('✅ cipher("abcd", null) -> TypeError');
+
+assert.throws(() => cipher("abcd", "1"), TypeError);
+console.log('✅ cipher("abcd", "1") -> TypeError');
 // End of tests
 
 console.log("🎉");

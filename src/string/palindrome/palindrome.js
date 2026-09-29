@@ -12,11 +12,25 @@ Example:
 * "tacos" -> false
 * "Kayak" -> true
 * null -> true
-
-Add you own tests.
-
 */
+function isPalindrome(word) {
+  if (word === null || word === "") {
+    return true;
+  }
+  word = word.toLowerCase();
+  // OR    return word === word.split("").reverse().join(""); */
 
+  const tab = word.split("");
+  const ceil = Math.ceil(tab.length / 2);
+
+  for (let i = 0; i < ceil; i++) {
+    if (tab[i] !== tab[tab.length - 1 - i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
 // TODO add your code here
 
 // Begin of tests
@@ -24,6 +38,14 @@ const assert = require("assert");
 
 assert.strictEqual(typeof isPalindrome, "function");
 assert.strictEqual(isPalindrome.length, 1);
+assert.strictEqual(isPalindrome("rotor"), true);
+console.log('✅ "rotor",true');
+assert.strictEqual(isPalindrome("tacos"), false);
+console.log('✅ "tacos",false');
+assert.strictEqual(isPalindrome("Kayak"), true);
+console.log('✅ "Kayak", true');
+assert.strictEqual(isPalindrome(null), true);
+console.log('✅ "null", true');
 
 // TODO add your tests here
 // End of tests
