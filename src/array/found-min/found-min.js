@@ -9,9 +9,18 @@ Example:
 * [] -> null
 
 You can't use the function Math.min()
-
+ 
 */
-
+function min(array) {
+  if (!array || array.length === 0) {
+    return null;
+  }
+  let result = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (result > array[i]) result = array[i];
+  }
+  return result;
+}
 // TODO add your code here
 
 // Begin of tests
